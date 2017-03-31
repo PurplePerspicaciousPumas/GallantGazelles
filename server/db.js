@@ -7,26 +7,28 @@ var models = require('./db/Models.js');
 // module.exports = client;
 
 pg.defaults.ssl = true;
-var client = pg.connect(process.env.GGDB_URL, function(err, client) {
+var client = new pg.Client(process.env.ELEPHANT_SQL + '?ssl=true');
+console.log(process.env.ELEPHANT_SQL);
+client.connect(function(err, client) {
   if (err) throw err;
   console.log('Connected to postgres! Getting schemas...');
-  client('DROP TABLE session, users, categories, comments, followers, investments, pitches, votes');
-  client
-    .query(models.sessionTable);
-  client
-    .query(models.usersTable);
-  client
-    .query(models.categoriesTable);
-  client
-    .query(models.commentsTable);
-  client
-    .query(models.followersTable);
-  client
-    .query(models.investmentsTable);
-  client
-    .query(models.pitchesTable);
-  client
-    .query(models.votesTable);
+  // client.query('DROP TABLE session, users, categories, comments, followers, investments, pitches, votes');
+  // client
+  //   .query(models.sessionTable);
+  // client
+  //   .query(models.usersTable);
+  // client
+  //   .query(models.categoriesTable);
+  // client
+  //   .query(models.commentsTable);
+  // client
+  //   .query(models.followersTable);
+  // client
+  //   .query(models.investmentsTable);
+  // client
+  //   .query(models.pitchesTable);
+  // client
+  //   .query(models.votesTable);
 });
 
 
