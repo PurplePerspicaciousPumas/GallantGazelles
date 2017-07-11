@@ -4,6 +4,8 @@
   - Alison Zhang
   - Craig Rodrigues
   - Edward Chan
+  - Paul Mills
+  - Scott Clendening
 
 ## Table of Contents
 1. [Usage](#Usage)
